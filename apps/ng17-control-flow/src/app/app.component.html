@@ -1,0 +1,17 @@
+
+@if (flag) {
+    it's true    
+  } @else {
+    its false
+}
+<hr />
+@for (item of empty; track item.id) {
+  <div>{{item.name}}</div>
+} @empty {
+  No items
+}
+
+
+
+
+<router-outlet></router-outlet>
