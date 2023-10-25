@@ -1,23 +1,35 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { DeferredBlockComponent } from './components/deferred-block/deferred-block.component';
+import { SIGNAL, createSignal } from '@angular/core/primitives/signals';
 
+interface Item {
+  id: number; 
+  name: string
+}
 @Component({
   standalone: true,
-  imports: [ RouterModule],
+  imports: [ RouterModule, DeferredBlockComponent],
   selector: 'ng17-control-flow-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  title = 'ng17-control-flow';
   flag = true;
-  items = [{
+  items = signal<Item[]>([{
     id: 1,
     name: 'Vasya'
   }, {
     id: 2,
     name: 'Petya'
-  }]
+  }]);
 
-  empty: Array<{id: number; name: string}> = [];
+  empty = signal<Item[]>([]);
+
+
+  constructor() {
+    
+  }
+
 }

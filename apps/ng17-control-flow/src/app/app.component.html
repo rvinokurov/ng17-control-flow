@@ -1,17 +1,19 @@
 
 @if (flag) {
-    it's true    
+    <h1>it's true    </h1>
   } @else {
-    its false
+    <h1>its false</h1>
 }
 <hr />
-@for (item of empty; track item.id) {
+@for (item of items(); track item.id) {
   <div>{{item.name}}</div>
 } @empty {
-  No items
+  <h3>No items</h3>
 }
 
 
-
-
-<router-outlet></router-outlet>
+@defer (on timer(5s); prefetch on timer(3s)) {
+   <deferred-block></deferred-block>
+} @placeholder {
+  <h3>Placeholder</h3>
+}
