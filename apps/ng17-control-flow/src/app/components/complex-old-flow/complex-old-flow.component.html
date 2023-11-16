@@ -1,0 +1,31 @@
+
+<ng-container *ngIf="flag(); else old">
+    <ng-container *ngIf="items().length; else empty">
+        <div *ngFor="let item of items()">
+            <ng-container [ngSwitch]="item.type">
+                <div *ngSwitchCase="'card'" class="card">      
+                    <div>{{item.name}}</div>
+                </div>
+                <p *ngSwitchCase="'text'">{{item.name}}</p>
+                <ng-container *ngSwitchDefault>
+                    <div>{{item.id}}</div>
+                    <div>{{item.name}}</div>        
+                </ng-container>
+            </ng-container>
+        </div>
+    </ng-container>
+</ng-container>
+<ng-template #old>
+    <ng-container *ngIf="items().length; else empty">
+        <div *ngFor="let item of items()">
+            <div>{{item.id}}</div>
+            <div>{{item.name}}</div>
+        </div>
+    </ng-container>
+</ng-template>
+<ng-template #empty>
+    <div>
+        <h3>No items</h3>
+    </div>
+</ng-template>
+

@@ -1,5 +1,5 @@
 
-@if (flag) {
+<!-- @if (flag) {
     <h1>it's true    </h1>
   } @else {
     <h1>its false</h1>
@@ -9,11 +9,21 @@
   <div>{{item.name}}</div>
 } @empty {
   <h3>No items</h3>
-}
+} -->
 
 
-@defer (on timer(5s); prefetch on timer(3s)) {
-   <deferred-block></deferred-block>
+@defer (on timer(5s)) {
+  <deferred-block></deferred-block>
 } @placeholder {
   <h3>Placeholder</h3>
-}
+} @loading (minimum 1s) {
+  <h3>loading</h3>
+} @error {
+  <p>Fail to load</p>
+}         
+
+
+
+<complex-new-flow></complex-new-flow>
+<!-- 
+<complex-old-flow></complex-old-flow> -->
