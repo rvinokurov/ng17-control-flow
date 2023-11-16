@@ -2,7 +2,7 @@
   "name": "ng17-control-flow",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "ng17-control-flow",
+  "prefix": "",
   "sourceRoot": "apps/ng17-control-flow/src",
   "tags": [],
   "targets": {

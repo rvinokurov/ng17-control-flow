@@ -1,0 +1,34 @@
+
+
+@if (flag()) {
+  @for (item of items(); track item) {
+    @switch (item.type) {
+      @case ('card') {
+        <div class="card">      
+          <div>{{item.name}}</div>
+        </div>
+      }
+      @case ('text') {
+        <p>{{item.name}}</p>
+      }
+      @default {
+        <div>{{item.id}}</div>
+        <div>{{item.name}}</div>        
+      }
+    }    
+  } @empty {
+    <div>
+        <h3>No items</h3>
+    </div>
+  }
+} @else {
+  @for (item of oldItems(); track item.id) {
+    <div>{{item.id}}</div>
+    <div>{{item.name}}</div>
+  } @empty {
+    <div>
+      <h3>No items</h3>
+    </div>
+  }
+}
+

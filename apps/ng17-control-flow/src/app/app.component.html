@@ -1,17 +1,29 @@
 
-@if (flag) {
-    it's true    
+<!-- @if (flag) {
+    <h1>it's true    </h1>
   } @else {
-    its false
+    <h1>its false</h1>
 }
 <hr />
-@for (item of empty; track item.id) {
+@for (item of items(); track item.id) {
   <div>{{item.name}}</div>
 } @empty {
-  No items
-}
+  <h3>No items</h3>
+} -->
+
+
+@defer (on timer(5s)) {
+  <deferred-block></deferred-block>
+} @placeholder {
+  <h3>Placeholder</h3>
+} @loading (minimum 1s) {
+  <h3>loading</h3>
+} @error {
+  <p>Fail to load</p>
+}         
 
 
 
-
-<router-outlet></router-outlet>
+<complex-new-flow></complex-new-flow>
+<!-- 
+<complex-old-flow></complex-old-flow> -->

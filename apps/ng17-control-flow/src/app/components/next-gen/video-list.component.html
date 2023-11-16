@@ -1,0 +1,19 @@
+
+    @for (video of videos(); track video.id) {
+      @defer (on viewport) {
+        <video-block [video]="video"></video-block>
+
+      } @placeholder {
+        <img [src]="video().thumbnail" />
+
+      } @loading (after 100ms; minimum 1s) {
+        <img alt="loading..." src="loading.gif" />
+
+      } @error {
+        <p>Fail to load {{video().title}}</p>
+      }             
+    }
+  
+  
+
+    
